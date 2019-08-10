@@ -4,7 +4,10 @@ export default function getBaseUrl() {
 
   // To Use : http://localhost:3000/?useMockApi=true
 
-  return getQueryStringParameterByName('useMockApi') ? 'http://localhost:3001/' : '/';
+  //return getQueryStringParameterByName('useMockApi') ? 'http://localhost:3001/' : '/';
+
+  // Change to use deployed server on Heroku :
+  return getQueryStringParameterByName('useMockApi') ? 'http://localhost:3001/' : 'https://sheltered-everglades-84890.herokuapp.com/';
 }
 
 // Could be done easier with jQuery

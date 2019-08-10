@@ -367,14 +367,65 @@ __________________________________________________
 
 Better speed as no need to re-download the whole bundle
 
-    Choice ==> bundle 3rd party lib separately
+    Choice ==> Use webpack : bundle 3rd party lib separately
+
+_________________________________________________
+
+  SubStep: e. Cache busting (save http requests / md5 hash   )
+
+    Choice ==> Use webpack : WebpackMd5Hash
+_________________________________________________
+
+  SubStep: f. extract and minify CSS
+
+    Choice ==> Use webpack : ExtractTextPlugin
+_________________________________________________
+
+  SubStep: f. error logging (T/S errors in production)
+
+trackjs vs sentry vs new relic vs raygun
+
+    Choice ==> Use trackjs : payed
+
+_________________________________________________
+
+  SubStep: g. inject different html depending on env (dev or prod)
 
 
+    Choice ==> use HtmlWebpackPlugin EJS for html template (see EJS website)
 
 
+________________________________________________________________________________________________________
+
+Step: 15 Production deploy
+
+1. separate UI and API :
+ - change API tech
+ - separate concerns 
+  - scale back end separately
+
+  SubStep: a. Cloud hosting :
+AWS vs microsoft azure vs heroku vs surge(only hosting static files)
+
+    Choice ==> for demo : heroku for API (with app.json and Procfile)
+    Choice ==> path for Prod : npm start (dev) / run build (prod build) / deploy (prod deploy)
+    Choice ==> for demo : surge for UI 
 
 
+________________________________________________________________________________________________________
 
+Step: 16 Handling starter kit updates
+
+yeoman vs github vs npm
+
+  Choice ==> yeoman vs github vs npm (centralize buildScripts, npm scripts and webpack config) / see create-react-app
+
+
+________________________________________________________________________________________________________
+
+Step: 17 Inspiration for other boilerplate
+
+  Choice ==> type google : frameworks + boilerplate|dev env|seed|starter kit|starter project
 
 
 
