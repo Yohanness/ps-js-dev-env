@@ -24,29 +24,29 @@ install plugin editorconfig
   Choice ==> VS code
 ________________________________________________________________________________________________________
 
-Step: 3 Package Mgmt 
+Step: 3 Package Mgmt
 
 npm is the best, goes with nodejs
-nodejs is : 
+nodejs is :
  - a runtime env to run JS code
- - to build back end services 
+ - to build back end services
  - it makes everything JS, back + front
  - lots of open source libraries
 
-  Choice ==> npm
+  Choice ==> npm - Use node foreman for managing env variable
 ________________________________________________________________________________________________________
 
 Step: 4 Dev WebServer for front end dev
 
 order :
  - webpack server because part of webpack
-    * can be associate with browsersync to test multiple platform 
+    * can be associate with browsersync to test multiple platform
  - express, also a production server, run through node directly si if backend is node it is quite good
  - http-client from npm very simple
 
 * browsersync can be used here also
 
-  Choice ==> express if backend node / Webpack-dev-server  -  + need try browserSync 
+  Choice ==> express if backend node / Webpack-dev-server  -  + need try browserSync
 ________________________________________________________________________________________________________
 
 Step: 5 Sharing work in progress with anybody
@@ -67,15 +67,15 @@ ________________________________________________________________________________
 
 Step: 7 Transpiling
 
-Why ? 
+Why ?
  - Allows to code using latest JS code features and converts to old ES5 (compatible with all browsers)
- - If new JS feature, transpiler makes sure we can use because it will transpile down to executable code 
+ - If new JS feature, transpiler makes sure we can use because it will transpile down to executable code
 
 typescript vs babel vs elm, what I like :
  - TS : this is typed, hot language today
  - Babel : good to learn how to code purely in JS
 
-babel example : 
+babel example :
  - configured either through .babelrc vs package.json
  - For build script : ES5 vs transpiled
 
@@ -91,7 +91,7 @@ the past is :
  - Global (always avoid because hard to read and maintain)
  - IIFE : wrap code in function immediately invoked to protect local variables (avoid variable hoisting)
  - AMD : also wrap : define(['jq'], function(jq) {});
-now : 
+now :
  - CommonJS : good with node (because ES5 ??) var jquery = require('jquery')
  - ES6 module : import jQuery from 'jquery' (then transpile down with babel for ex)
     * Standardized, statically analyzable, fails fast & tree shaking (unused stuff)
@@ -102,7 +102,7 @@ now :
 	import * as lib from 'lib';
 	console.log(lib.square(11)); // 121
 	console.log(lib.diag(4, 3)); // 5
-	16.1.2 Single default export 
+	16.1.2 Single default export
 	There can be a single default export. For example, a function:
 
 	//------ myFunc.js ------
@@ -148,12 +148,12 @@ ________________________________________________________________________________
 Step: 9 Linting (enforce code consistency and avoid mistakes)
 
 JSLint old vs JSHint vs ESLint
-To use : 
+To use :
  - plug package eslint-loader : tied with webpack (re-lint upon save)
  - plug package eslint-watch : watch files (esw files in npm scripts)
  (- need babel-eslint to lint experimental features if needed)
 
-disable some rules in build files example : 
+disable some rules in build files example :
 one file :    /* eslint-disable no-console */
 or one line : // eslint-disable-line no-console
 
@@ -166,7 +166,7 @@ __________________________________________________
 
 .eslint** files (or in package.json "eslintConfig" : (one less file))
 
-    Choice ==> .eslintrc.json 
+    Choice ==> .eslintrc.json
 __________________________________________________
 
   SubStep: b. which rules
@@ -177,7 +177,7 @@ __________________________________________________
   SubStep: c. warning or errors ?
   exemple :
   "rules": {
-    "no-console": 1 // for no-console rule :  1-> warning, set 2 for errors and break build 
+    "no-console": 1 // for no-console rule :  1-> warning, set 2 for errors and break build
   }
 
     Choice ==> I prefer errors (could also be a mix)
@@ -188,10 +188,10 @@ __________________________________________________
     Choice ==> see popular list in github.com/dustinspecker/awesome-eslint
 __________________________________________________
 
-  SubStep: e. OR preset 
+  SubStep: e. OR preset
 
 "eslint:recommended"
-override in : 
+override in :
   "rules": {
     "no-console": 1
   }
@@ -239,15 +239,15 @@ __________________________________________________
   SubStep: e. Ehere test files belong ?
 centralized in test folder VS alongside with source code
 centralized to avoid noise in src and deployment confusion
-alongside for : 
+alongside for :
    - easy imports, clear visibility (index.js and index.test.js)
    - easy moving files, no need to re-create whole path in test folder
 
     Choice ==> alongside with source code (index.js and index.test.js or .spec.js)
 __________________________________________________
 
-  SubStep: f. When should the test run ? 
- 
+  SubStep: f. When should the test run ?
+
     Choice ==> When I hit save (but only for unit test)
 
 I did not see code coverage, mocking ...
@@ -301,7 +301,7 @@ Why :
  - avoid inter-team bottleneck
 
 Nock (just for UT) vs static json vs dev webserver : api-mock vs JSON server vs JSON schema faker vs browsersync, express ...
-     
+
 
 try JSON schema faker + fake data with faker.js chance.js randexp.js + JSON Server
 
@@ -360,7 +360,7 @@ via : node-js vs plugin html-webpack-plugin
 
     Choice ==> html-webpack-plugin
 
- 
+
 __________________________________________________
 
   SubStep: d. Bundle Splitting
@@ -401,7 +401,7 @@ Step: 15 Production deploy
 
 1. separate UI and API :
  - change API tech
- - separate concerns 
+ - separate concerns
   - scale back end separately
 
   SubStep: a. Cloud hosting :
@@ -409,7 +409,7 @@ AWS vs microsoft azure vs heroku vs surge(only hosting static files)
 
     Choice ==> for demo : heroku for API (with app.json and Procfile)
     Choice ==> path for Prod : npm start (dev) / run build (prod build) / deploy (prod deploy)
-    Choice ==> for demo : surge for UI 
+    Choice ==> for demo : surge for UI
 
 
 ________________________________________________________________________________________________________

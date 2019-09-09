@@ -24,6 +24,8 @@
   "author": "Cory House",
   "license": "MIT",
   "dependencies": {
+    "babel-preset-stage-3": "^6.24.1",
+    "prod": "file:src/bestpractices/prod",
     "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
